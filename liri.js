@@ -1,6 +1,7 @@
 //app requirements
+//dotenv requirement to hide API keys
 require('dotenv').config();
-
+//axios import
 var axios = require("axios");
 
 var Spotify = require('node-spotify-api');
@@ -55,7 +56,8 @@ function staticSearch(searchTerm) {
 //control flow to determine what function is called.
 switch (command) {
     case "concert-this":
-        concertSearch(userInput);
+        //concertSearch(userInput);
+        console.log("bands in town");
         break;
 
     case "spotify-this-song":
@@ -72,4 +74,4 @@ switch (command) {
 
     default:
         console.log("Please enter a valid search term.");
-}
+};
