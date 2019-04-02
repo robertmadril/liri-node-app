@@ -57,7 +57,14 @@ function movieSearch(searchTerm) {
 
     axios.get(queryUrl).then(
         function (response) {
-            console.log("Release Year: " + response.data.Year);
+            console.log("Movie: " + response.data.Title);
+            console.log("Year: " + response.data.Year);
+            console.log("IMDB Rating: " + response.data.Ratings[0].Value);
+            console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+            console.log("Country: " + response.data.Country);
+            console.log("Language: " + response.data.Language);
+            console.log("Plot: " + response.data.Plot);
+            console.log("Actors: " + response.data.Actors);
         }
     );
 
@@ -71,7 +78,6 @@ function staticSearch() {
 switch (command) {
     case "concert-this":
         concertSearch(userInput);
-        console.log("bands in town");
         break;
 
     case "spotify-this-song":
@@ -84,7 +90,12 @@ switch (command) {
         break;
 
     case "movie-this":
-        movieSearch(userInput);
+    if (!userInput) {
+        userInput = "Mr+Nobody"
+        movieSearch(userInput); }
+        else {
+            movieSearch(userInput);
+        }
         break;
 
     case "do-what-it-says":
