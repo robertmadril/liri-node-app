@@ -75,7 +75,12 @@ switch (command) {
         break;
 
     case "spotify-this-song":
-        spotifySearch(userInput);
+        if (!userInput) {
+        userInput = "Ace+of+Base"
+        spotifySearch(userInput); }
+        else {
+            spotifySearch(userInput);
+        }
         break;
 
     case "movie-this":
