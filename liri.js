@@ -12,7 +12,7 @@ var spotify = new Spotify(keys.spotify);
  
 var command = process.argv[2];
 
-var userInput = process.argv.splice(3).toString();
+var userInput = process.argv.splice(3).join("+").toString();
 
 console.log(userInput);
 
@@ -30,17 +30,24 @@ function concertSearch(searchTerm) {
 };
 
 function spotifySearch(searchTerm) {
+
     spotify
-        .search({ type: 'artist', query: searchTerm })
+        .search({ type: 'track', query: searchTerm })
         .then(function (response) {
 
             
-            console.log(response);
+            console.log(response.tracks.items[0].artists[0].name);
+            console.log(response.tracks.items[0].name);
+            console.log(response.tracks.items[0].album.external_urls.spotify);
+            console.log(response.tracks.items[0].album.name);
+
             
         })
         .catch(function (err) {
             console.log(err);
         });
+
+
 };
 
 function movieSearch(searchTerm) {
