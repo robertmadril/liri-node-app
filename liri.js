@@ -9,6 +9,8 @@ var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify(keys.spotify);
+
+var moment = require('moment');
  
 var command = process.argv[2];
 
@@ -28,7 +30,7 @@ function concertSearch(searchTerm) {
             for (i=0; i<objectReturned.length; i++) {
             console.log(objectReturned[i].venue.name);
             console.log(objectReturned[i].venue.city);
-            console.log(objectReturned[i].datetime);
+            console.log(moment(objectReturned[i].datetime).format("MM/DD/YYYY"));
             console.log("__________________________");
             
             }
@@ -115,7 +117,7 @@ switch (command) {
 
 /* To-Do
 
-Clean concert call
+Clean time in concert call
 Create FS call to import data
 Create staticSearch from FS call (assign command and userInput)
 
