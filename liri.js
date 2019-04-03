@@ -24,7 +24,14 @@ function concertSearch(searchTerm) {
 
     axios.get(queryUrl).then(
         function (response) {
-            console.log(response.data[0]);
+            var objectReturned = response.data;
+            for (i=0; i<objectReturned.length; i++) {
+            console.log(objectReturned[i].venue.name);
+            console.log(objectReturned[i].venue.city);
+            console.log(objectReturned[i].datetime);
+            console.log("__________________________");
+            
+            }
         }
     );
 };
@@ -105,3 +112,11 @@ switch (command) {
     default:
         console.log("Please enter a valid search term.");
 };
+
+/* To-Do
+
+Clean concert call
+Create FS call to import data
+Create staticSearch from FS call (assign command and userInput)
+
+*/
