@@ -32,5 +32,5 @@ node liri.js movie-this Blade Runner
     1. Otherwise, for a default search, type "do-what-it-says", not inserting a search term following the command
 
 Here's a link to a video demo, to see it in action:
-[YouTube=LIRI](https://youtu.be/LdI-ygRvIFs)
+[YouTube-LIRI](https://youtu.be/LdI-ygRvIFs)
 Hope you find what you're looking for!
