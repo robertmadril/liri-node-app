@@ -11,7 +11,14 @@ This app is built in Node.js and uses a command line interface to find specific 
 
 * Download the dependencies by running npm install in the terminal (be sure that you run this while in the recently cloned folder on your disk). 
 
-* Once npm installing is complete, you're ready to begin searching!
+* Next, be sure you have a spotify key listed in a file titled ".env" in the same folder as your liri.js file in the format below:
+```
+SPOTIFY_ID=YOUR SPOTIFY ID
+SPOTIFY_SECRET=YOUR SPOTIFY SECRET
+```
+
+* Once these steps are complete, you're ready to begin searching!
+
 
 * In order to search, you can choose from the list of commands + a search term following your file call. An example of this would look like:
 ```
