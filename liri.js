@@ -11,12 +11,12 @@ var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 
 var moment = require('moment');
+
+var fs = require("fs");
  
 var command = process.argv[2];
 
 var userInput = process.argv.splice(3).join("+").toString();
-
-console.log(userInput);
 
 //functions that will handle API calls
 function concertSearch(searchTerm) {
@@ -80,11 +80,25 @@ function movieSearch(searchTerm) {
 };
 
 function staticSearch() {
-
+    fs.readFile("random.txt", "utf-8", function(err, data) {
+        if (err) {
+            return console.log(err);
+          }
+        
+        var data = data.toString().split(",");
+        command = data[0];
+        userInput = data[1];
+    })
 };
 
 //control flow to determine what function is called.
+
 switch (command) {
+
+    case "do-what-it-says":
+        staticSearch();
+        break;
+
     case "concert-this":
         concertSearch(userInput);
         break;
@@ -107,18 +121,14 @@ switch (command) {
         }
         break;
 
-    case "do-what-it-says":
-        staticSearch();
-        break;
 
     default:
         console.log("Please enter a valid search term.");
 };
 
+
 /* To-Do
 
-Clean time in concert call
-Create FS call to import data
 Create staticSearch from FS call (assign command and userInput)
 
 */
